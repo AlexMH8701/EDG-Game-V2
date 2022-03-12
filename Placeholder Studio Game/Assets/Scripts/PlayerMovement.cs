@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded = true;
     [HideInInspector] public bool flipped = false;
 	List<string> platformsToReset = new List<string>();
+    public Animator animator;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         horizontalMovement = Input.GetAxisRaw("Horizontal1") * speed;
+        animator.SetFloat("walkSpeed", Mathf.Abs(horizontalMovement));
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
         {
             jump = true;
