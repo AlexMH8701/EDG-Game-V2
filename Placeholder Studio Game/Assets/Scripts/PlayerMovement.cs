@@ -79,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 			}
 		}
 		if (raycastHit.collider == null || !raycastHit.collider.tag.Contains("FloatingPlatform")) {
-			print(platformsToReset.Count);
 			if (platformsToReset.Count > 0) {
 				for (int i = platformsToReset.Count-1; i >= 0; --i) {
 					GameObject.FindGameObjectWithTag(platformsToReset[i]).GetComponent<PlatformEffector2D>().rotationalOffset = 0;
