@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 	public HealthBar healthBar;
 	public Transform respawnPoint;
 	public GameObject player;
-	private bool canDmg = true;
+	public bool canDmg = true;
 	private int lives = 3;
 
 	void Start()
@@ -19,15 +19,7 @@ public class Health : MonoBehaviour
 		healthBar.SetMaxHealth(maxHealth);
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			if (canDmg) {
-				TakeDamage(100);
-			}
-		}
-	}
+	
 
 	public void TakeDamage(int damage)
 	{
@@ -41,11 +33,14 @@ public class Health : MonoBehaviour
 			canDmg = false;
 			removeLife();
 			healthBar.SetMaxHealth(maxHealth);
-			player.transform.position = respawnPoint.position;
 			lives -= 1;
-			StartCoroutine(RespawnProtection());
-			player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+			newRound();
         }
+	}
+	void newRound(){
+		player.transform.position = respawnPoint.position;
+		StartCoroutine(RespawnProtection());
+		player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 	}
 	void removeLife() {
 		if (lives <= 0) {

@@ -300,6 +300,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3323656363729962593}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &245244622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
+    type: 3}
+  m_PrefabInstance: {fileID: 3323656363729962593}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &245244623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +323,25 @@ MonoBehaviour:
   healthBar: {fileID: 205321159}
   respawnPoint: {fileID: 862760104}
   player: {fileID: 245244615}
+  canDmg: 1
+--- !u!114 &245244624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245244615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b86901b6b04d140a7f8fe46b8e0344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightAttack: {fileID: 1450102694}
+  attackRange: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  player1: 1
 --- !u!1 &291112216
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +385,36 @@ Transform:
   - {fileID: 1278545807}
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &436131230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436131231}
+  m_Layer: 8
+  m_Name: LightAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436131231
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436131230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198674326}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440017045
 GameObject:
@@ -1953,6 +2008,31 @@ MonoBehaviour:
   healthBar: {fileID: 1379163442}
   respawnPoint: {fileID: 243737510}
   player: {fileID: 1198674318}
+  canDmg: 1
+--- !u!4 &1198674326 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995341264}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1198674327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198674318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b86901b6b04d140a7f8fe46b8e0344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LightAttack: {fileID: 436131231}
+  attackRange: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  player1: 0
 --- !u!1 &1278545806
 GameObject:
   m_ObjectHideFlags: 0
@@ -2211,6 +2291,36 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1450102693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450102694}
+  m_Layer: 7
+  m_Name: LightAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450102694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450102693}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 0.08, z: 0}
+  m_LocalScale: {x: 0, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 245244622}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1511039874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2470,7 @@ MonoBehaviour:
   jumpForce: 11
   flipped: 0
   animator: {fileID: 0}
+  player1: 0
 --- !u!50 &1701133561
 Rigidbody2D:
   serializedVersion: 4
@@ -2506,6 +2617,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   respawnPoint: {fileID: 0}
   player: {fileID: 0}
+  canDmg: 1
 --- !u!114 &1701133567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,6 +2635,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+  player1: 0
 --- !u!1 &1932752765
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,17 +2725,32 @@ PrefabInstance:
     - target: {fileID: 3323656363888436390, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_Name
-      value: SwordFish (1)
+      value: SwordFistP2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436390, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436393, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436393, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: jumpForce
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.05
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
@@ -2703,7 +2831,7 @@ Transform:
   - {fileID: 958924609}
   - {fileID: 440017046}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006859645
 GameObject:
@@ -2794,7 +2922,17 @@ PrefabInstance:
     - target: {fileID: 3323656363888436390, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_Name
-      value: SwordFish
+      value: SwordFishP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436390, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436393, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: player1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
@@ -2804,7 +2942,7 @@ PrefabInstance:
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.34
+      value: -7.26
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}

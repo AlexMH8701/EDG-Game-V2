@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 	List<string> platformsToReset = new List<string>();
     public Animator animator;
 
+    //checks to see if we need P1 or P2 controls
+    public bool player1;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -37,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
             numOfJumps++;
         }
 
-        horizontalMovement = Input.GetAxisRaw("Horizontal1") * speed;
+        if(player1){
+            horizontalMovement = Input.GetAxisRaw("HorizontalP1") * speed;
+        }else{
+             horizontalMovement = Input.GetAxisRaw("HorizontalP2") * speed;
+        }
         animator.SetFloat("walkSpeed", Mathf.Abs(horizontalMovement));
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)))
+        if ((Input.GetKeyDown(KeyCode.W) && player1) || ((Input.GetKeyDown(KeyCode.I) && !player1)))
         {
             jump = true;
         }
@@ -73,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         float extraHeight = .1f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(player_collider.bounds.center, player_collider.bounds.size, 0f, Vector2.down, extraHeight, platformLayerMask);
 		if (raycastHit.collider != null && raycastHit.collider.tag.Contains("FloatingPlatform")) {
-			if (Input.GetKeyDown(KeyCode.S)) {
+			if ((Input.GetKeyDown(KeyCode.S))){
 				platformsToReset.Add(raycastHit.collider.tag);
 				sinkPlayer(raycastHit.collider.tag);
 			}
