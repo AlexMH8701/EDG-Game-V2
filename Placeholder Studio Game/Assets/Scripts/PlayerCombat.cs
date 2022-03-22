@@ -5,11 +5,19 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform LightAttack;
+
+    public Transform HeavyAttack;
     public float attackRange = 0.5f;
     public LayerMask enemyLayer;
 
     //checks to see if we need P1 or P2 controls
     public bool player1;
+
+     //The interval you want your player to be able to fire.
+    float AttackRate  = 0.5f;
+ 
+    //The actual time the player will be able to fire.
+     private float NextAttack;
 
 
    
@@ -17,30 +25,63 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per framevoid Update()
 	 void Update()
      {
-		if ((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1))
+		if (((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1)) && Time.time > NextAttack)
 		{
 
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
-				Attack();
+				LAttack();
+                NextAttack = Time.time + AttackRate;
 			}
+
+		}
+
+        if (((Input.GetKeyDown(KeyCode.E) && player1) || (Input.GetKeyDown(KeyCode.U) && !player1)) && Time.time > NextAttack)
+		{
+
+             bool canDmg = gameObject.GetComponent<Health>().canDmg;
+
+			if (canDmg) {
+				HAttack();
+                NextAttack = Time.time + AttackRate*3;
+			}
+
 		}
 	}
 
-	 void Attack()
+    //light attack
+	 void LAttack()
     {
 
 		//play animation
 
         //detect enemies in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange, enemyLayer);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange*1.5f, enemyLayer);
 
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().TakeDamage(20);
-			Debug.Log("Hit" + enemy.name);
+			Debug.Log("Light Attack Hit " + enemy.name);
+        }
+
+    }
+
+    //heavy attack
+    void HAttack()
+    {
+
+		//play animation
+
+        //detect enemies in range
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(HeavyAttack.position, attackRange, enemyLayer);
+
+        //damage them
+        foreach(Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<Health>().TakeDamage(40);
+			Debug.Log("Heavy Attack Hit " + enemy.name);
         }
 
     }
@@ -50,7 +91,7 @@ public class PlayerCombat : MonoBehaviour
         //draws attack so we can see it in scene editor
         if (LightAttack == null)
             return;
-
-        Gizmos.DrawWireSphere(LightAttack.position, attackRange);
+        if (HeavyAttack == null)
+        Gizmos.DrawWireSphere(HeavyAttack.position, attackRange);
     }
 }
