@@ -29,9 +29,14 @@ public class PlayerMovement : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         player_collider = GetComponent<BoxCollider2D>();
         _rigidbody.gravityScale = 3;
+
+        if (!player1){
+           transform.localScale *= new Vector2(-1, 1);
+        }
     }
     void Update()
     {
+
          //makes sure the game is not paused before letting them move
         if (PauseMenu.GameIsPaused){
             return;

@@ -37,7 +37,8 @@ public class PlayerCombat : MonoBehaviour
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
-				LAttack();
+
+				Invoke("LAttack", 0.05f);
                 NextAttack = Time.time + AttackRate;
 			}
 
@@ -49,7 +50,7 @@ public class PlayerCombat : MonoBehaviour
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
-				HAttack();
+				Invoke("HAttack", 0.1f);
                 NextAttack = Time.time + AttackRate*3;
 			}
 
@@ -65,12 +66,14 @@ public class PlayerCombat : MonoBehaviour
         //detect enemies in range
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange*1.5f, enemyLayer);
 
+
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().TakeDamage(20);
 			Debug.Log("Light Attack Hit " + enemy.name);
         }
+
 
     }
 
