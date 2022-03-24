@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 	List<string> platformsToReset = new List<string>();
     public Animator animator;
 
+    public PauseMenu PauseMenu;
+
     //checks to see if we need P1 or P2 controls
     public bool player1;
 
@@ -30,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+         //makes sure the game is not paused before letting them move
+        if (PauseMenu.GameIsPaused){
+            return;
+        }
+            
+
         grounded = isGrounded();
         if (grounded)
         {

@@ -19,12 +19,18 @@ public class PlayerCombat : MonoBehaviour
     //The actual time the player will be able to fire.
      private float NextAttack;
 
-
+    public PauseMenu PauseMenu;
    
 
     // Update is called once per framevoid Update()
 	 void Update()
      {
+
+         //makes sure the game is not paused before letting them attack
+         if (PauseMenu.GameIsPaused){
+            return;
+        }
+
 		if (((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1)) && Time.time > NextAttack)
 		{
 
