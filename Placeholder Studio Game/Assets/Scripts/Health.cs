@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 	public GameObject player;
 	public bool canDmg = true;
 	private int lives = 3;
+	public Animator _animator;
 
 	void Start()
 	{
@@ -52,7 +53,9 @@ public class Health : MonoBehaviour
 		}
 	}
 	IEnumerator RespawnProtection() {
+		_animator.SetBool("spawn", true);
 		yield return new WaitForSeconds(2);
+		_animator.SetBool("spawn", false);
 		canDmg = true;
 		yield return null;
 	}

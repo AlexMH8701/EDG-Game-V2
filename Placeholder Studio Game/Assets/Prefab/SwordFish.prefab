@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3323656363888436392}
   - component: {fileID: 3323656363888436393}
   - component: {fileID: 3323656363888436396}
-  - component: {fileID: 245244622}
   m_Layer: 0
   m_Name: SwordFish
   m_TagString: Untagged
@@ -154,6 +153,8 @@ MonoBehaviour:
   jumpForce: 12
   flipped: 0
   animator: {fileID: 3323656363888436396}
+  PauseMenu: {fileID: 0}
+  player1: 0
 --- !u!95 &3323656363888436396
 Animator:
   serializedVersion: 3
@@ -173,17 +174,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &245244622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3323656363888436390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8591382d788ee4c42baf9cae70182e21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 5781597555455386706, guid: 17e4b0d18b0675f4a9a319b68a92e330,
-    type: 3}
