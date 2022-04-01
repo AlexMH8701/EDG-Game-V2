@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
+		StartCoroutine(playHurtAnim());
 		currentHealth -= damage;
 
 		healthBar.SetHealth(currentHealth);
@@ -39,6 +40,7 @@ public class Health : MonoBehaviour
         }
 	}
 	void newRound(){
+		_animator.SetBool("hurt", false);
 		player.transform.position = respawnPoint.position;
 		StartCoroutine(RespawnProtection());
 		player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
@@ -57,6 +59,11 @@ public class Health : MonoBehaviour
 		yield return new WaitForSeconds(2);
 		_animator.SetBool("spawn", false);
 		canDmg = true;
-		yield return null;
+	}
+
+	IEnumerator playHurtAnim() {
+		_animator.SetBool("hurt", true);
+		yield return new WaitForSeconds(.2f);
+		_animator.SetBool("hurt", false);
 	}
 }
