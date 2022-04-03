@@ -5,7 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-   public void PlayGame(){
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-   }
+    public GameObject leftDoor;
+    public GameObject rightDoor;
+    Animator leftDoorAnimator;
+    Animator rightDoorAnimator;
+    private void Start() {
+        leftDoorAnimator = leftDoor.GetComponent<Animator>();
+        rightDoorAnimator = rightDoor.GetComponent<Animator>();
+    }
+    public void PlayGame() {
+        StartCoroutine(OpenDoors());
+    }
+    IEnumerator OpenDoors() {
+        print("HI");
+        leftDoorAnimator.SetTrigger("open");
+        rightDoorAnimator.SetTrigger("open");
+        yield return new WaitForSeconds(.8f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
 }
