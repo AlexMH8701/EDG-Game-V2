@@ -16,6 +16,11 @@ public class StartGame : MonoBehaviour
     public void PlayGame() {
         StartCoroutine(OpenDoors());
     }
+
+    public void QuitGame() {
+        Application.Quit();
+    }
+    
     IEnumerator OpenDoors() {
         print("HI");
         leftDoorAnimator.SetTrigger("open");

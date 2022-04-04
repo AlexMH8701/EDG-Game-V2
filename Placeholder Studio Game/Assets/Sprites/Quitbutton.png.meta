@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ee4e2b6e1fedff4989cd9e6f3a1ed03
+guid: 35f04f2c80776474db48ab16969a10f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2230229002620744338
-    second: Start Button_0
+      213: 1017868678124906489
+    second: Quitbutton_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,11 +106,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start Button_0
+      name: Quitbutton_0
       rect:
         serializedVersion: 2
         x: 261
-        y: 166
+        y: 40
         width: 178
         height: 48
       alignment: 0
@@ -120,8 +120,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6d4403d982ac01e0800000000000000
-      internalID: -2230229002620744338
+      spriteID: 9f7a1ab7b22302e00800000000000000
+      internalID: 1017868678124906489
       vertices: []
       indices: 
       edges: []
