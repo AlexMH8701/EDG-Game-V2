@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
 	public Transform respawnPoint;
 	public GameObject player;
 	public bool canDmg = true;
-	private int lives = 3;
+	public int lives = 3;
 	public Animator _animator;
 
 	void Start()

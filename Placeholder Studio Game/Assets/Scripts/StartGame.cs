@@ -14,6 +14,7 @@ public class StartGame : MonoBehaviour
         rightDoorAnimator = rightDoor.GetComponent<Animator>();
     }
     public void PlayGame() {
+        StopAllCoroutines();
         StartCoroutine(OpenDoors());
     }
 
@@ -26,6 +27,6 @@ public class StartGame : MonoBehaviour
         leftDoorAnimator.SetTrigger("open");
         rightDoorAnimator.SetTrigger("open");
         yield return new WaitForSeconds(.8f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene(1);
     }
 }
