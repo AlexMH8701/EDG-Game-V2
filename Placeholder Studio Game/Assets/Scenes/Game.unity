@@ -1996,7 +1996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &757073387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3010,6 +3010,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 1632571613}
   timer: {fileID: 915619830}
   time: 180
+  end: {fileID: 834682439}
 --- !u!114 &915619830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,14 +10,11 @@ public class Timer : MonoBehaviour
      public PauseMenu PauseMenu;
     public TextMeshProUGUI timer;
     public int time = 180;
+
+   public GameEnd end;
     void Start()
     {
         StartCoroutine(countDown());
-    }
-    private void Update() {
-        if (time == 0) {
-            SceneManager.LoadScene("End Screen");
-        }
     }
 
     IEnumerator countDown() {
@@ -25,7 +22,9 @@ public class Timer : MonoBehaviour
             timer.text = "" + time;
             time -= 1;
             yield return new WaitForSeconds(1);
+            Debug.Log(time);
         }
+        end.WhoWon();
         yield return null;
     }
 }

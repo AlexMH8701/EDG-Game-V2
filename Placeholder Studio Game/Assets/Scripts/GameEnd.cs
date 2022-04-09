@@ -25,4 +25,12 @@ public class GameEnd : MonoBehaviour
         Pause.Pause();
         Player2UI.SetActive(true);
     }
+    public void WhoWon(){
+
+        if((Player1.GetComponent<Health>().lives * Player1.GetComponent<Health>().maxHealth) + Player1.GetComponent<Health>().currentHealth > (Player2.GetComponent<Health>().lives * Player2.GetComponent<Health>().maxHealth) + Player2.GetComponent<Health>().currentHealth){
+            P1Win();
+        }else{
+            P2Win();
+        }
+    }
 }
