@@ -580,6 +580,7 @@ MonoBehaviour:
     m_Bits: 256
   player1: 1
   PauseMenu: {fileID: 1632571613}
+  animator: {fileID: 245244617}
 --- !u!1 &288571505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,6 +4031,7 @@ MonoBehaviour:
     m_Bits: 128
   player1: 0
   PauseMenu: {fileID: 1632571613}
+  animator: {fileID: 1198674321}
 --- !u!1 &1229814882
 GameObject:
   m_ObjectHideFlags: 0

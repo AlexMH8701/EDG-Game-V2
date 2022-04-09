@@ -18,12 +18,13 @@ public class PlayerCombat : MonoBehaviour
 
      //The interval you want your player to be able to fire.
     float AttackRate  = 0.5f;
- 
+
     //The actual time the player will be able to fire.
      private float NextAttack;
 
     public PauseMenu PauseMenu;
-   
+    public Animator animator;
+
 
     // Update is called once per framevoid Update()
 	 void Update()
@@ -35,12 +36,14 @@ public class PlayerCombat : MonoBehaviour
         }
 
 		if (((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1)) && Time.time > NextAttack)
-		{ 
+		{
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
+
                 Lattacksound.Play();
-				Invoke("LAttack", 0.05f);
+                animator.SetTrigger("LightAttack");
+				        Invoke("LAttack", 0.05f);
 			}
 
             NextAttack = Time.time + AttackRate;
@@ -53,6 +56,7 @@ public class PlayerCombat : MonoBehaviour
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
+                animator.SetTrigger("HeavyAttack");
 				Invoke("HAttack", 0.1f);
 			}
 
