@@ -27,6 +27,6 @@ public class StartGame : MonoBehaviour
         leftDoorAnimator.SetTrigger("open");
         rightDoorAnimator.SetTrigger("open");
         yield return new WaitForSeconds(.8f);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
