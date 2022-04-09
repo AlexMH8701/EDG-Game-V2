@@ -55,6 +55,7 @@ public class PlayerCombat : MonoBehaviour
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
+                animator.SetTrigger("HeavyAttack");
 				Invoke("HAttack", 0.1f);
 			}
 
