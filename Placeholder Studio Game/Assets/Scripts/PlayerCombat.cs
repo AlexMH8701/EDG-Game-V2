@@ -43,7 +43,7 @@ public class PlayerCombat : MonoBehaviour
 
                 Lattacksound.Play();
                 animator.SetTrigger("LightAttack");
-				        Invoke("LAttack", 0.05f);
+				StartCoroutine(LAttack());
 			}
 
             NextAttack = Time.time + AttackRate;
@@ -57,7 +57,7 @@ public class PlayerCombat : MonoBehaviour
 
 			if (canDmg) {
                 animator.SetTrigger("HeavyAttack");
-				Invoke("HAttack", 0.1f);
+				StartCoroutine(HAttack());
 			}
 
             NextAttack = Time.time + AttackRate*3;
@@ -65,45 +65,51 @@ public class PlayerCombat : MonoBehaviour
 		}
 	}
 
-    //light attack
-	 void LAttack()
-    {
+    IEnumerator LAttack(){
 
-		//play animation
+        float time = .1f;
 
-        //detect enemies in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange*1.5f, enemyLayer);
+        yield return new WaitForSeconds(time);
 
+        while(time < 1.5f){
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange, enemyLayer);
 
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
             if(enemy.GetComponent<Health>().canDmg){
-                 enemy.GetComponent<Health>().TakeDamage(20);
+                enemy.GetComponent<Health>().TakeDamage(20);
+                time = 2;
             }
+            yield return new WaitForSeconds(.2f);
+            
         }
-
-
+        time += .2f;
+        }
     }
 
     //heavy attack
-    void HAttack()
-    {
+    IEnumerator HAttack(){
 
-		//play animation
+        float time = .2f;
 
-        //detect enemies in range
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(HeavyAttack.position, attackRange, enemyLayer);
+        yield return new WaitForSeconds(time);
+
+        while(time < 1.5f){
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(LightAttack.position, attackRange, enemyLayer);
 
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
             if(enemy.GetComponent<Health>().canDmg){
-            enemy.GetComponent<Health>().TakeDamage(40);
+                enemy.GetComponent<Health>().TakeDamage(40);
+                time = 2;
             }
-			//Debug.Log("Heavy Attack Hit " + enemy.name);
+            yield return new WaitForSeconds(.2f);
+            
         }
-
+        time += .2f;
+        }   
     }
 
 	void OnDrawGizmosSelected()
