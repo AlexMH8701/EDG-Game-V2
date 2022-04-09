@@ -92,20 +92,30 @@ public class PlayerMovement : MonoBehaviour
     {
         float extraHeight = .1f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(player_collider.bounds.center, player_collider.bounds.size, 0f, Vector2.down, extraHeight, platformLayerMask);
-		if (raycastHit.collider != null && raycastHit.collider.tag.Contains("FloatingPlatform")) {
-			if ((Input.GetKeyDown(KeyCode.S))){
-				platformsToReset.Add(raycastHit.collider.tag);
-				sinkPlayer(raycastHit.collider.tag);
-			}
-		}
-		if (raycastHit.collider == null || !raycastHit.collider.tag.Contains("FloatingPlatform")) {
-			if (platformsToReset.Count > 0) {
-				for (int i = platformsToReset.Count-1; i >= 0; --i) {
-					GameObject.FindGameObjectWithTag(platformsToReset[i]).GetComponent<PlatformEffector2D>().rotationalOffset = 0;
-				}
-				platformsToReset.Clear();
-			}
-		}
+		if (Input.GetKeyDown(KeyCode.S) && player1) {
+            if (raycastHit.collider.tag.Contains("FloatingPlatform")) {
+                StartCoroutine(Platform(raycastHit));
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.K) && !player1) {
+            if (raycastHit.collider.tag.Contains("FloatingPlatform")) {
+                StartCoroutine(Platform(raycastHit));
+            }
+        }
+        // if (raycastHit.collider != null && raycastHit.collider.tag.Contains("FloatingPlatform")) {
+		// 	if ((Input.GetKeyDown(KeyCode.S))){
+		// 		platformsToReset.Add(raycastHit.collider.tag);
+		// 		sinkPlayer(raycastHit.collider.tag);
+		// 	}
+		// }
+		// if (raycastHit.collider.tag.Contains("FloatingPlatform")) {
+		// 	if (platformsToReset.Count > 0) {
+		// 		for (int i = platformsToReset.Count-1; i >= 0; --i) {
+		// 			GameObject.FindGameObjectWithTag(platformsToReset[i]).GetComponent<PlatformEffector2D>().rotationalOffset = 0;
+		// 		}
+		// 		platformsToReset.Clear();
+		// 	}
+		// }
 		
 		return raycastHit.collider != null;
     }
@@ -122,5 +132,9 @@ public class PlayerMovement : MonoBehaviour
 	void sinkPlayer(string platform) {
 		GameObject.FindGameObjectWithTag(platform).GetComponent<PlatformEffector2D>().rotationalOffset = 180;
 	}
-	
+	IEnumerator Platform(RaycastHit2D raycastHit) {
+        raycastHit.collider.GetComponent<PlatformEffector2D>().surfaceArc = 0;
+        yield return new WaitForSeconds(1);
+        raycastHit.collider.GetComponent<PlatformEffector2D>().surfaceArc = 180;
+    }
 }
