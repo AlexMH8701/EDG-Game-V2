@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
 	public bool canDmg = true;
 	public int lives = 3;
 	public Animator _animator;
+	public GameEnd GameEnd;
 
 	void Start()
 	{
@@ -33,10 +34,11 @@ public class Health : MonoBehaviour
         {
 			currentHealth = maxHealth;
 			canDmg = false;
-			removeLife();
-			healthBar.SetMaxHealth(maxHealth);
-			lives -= 1;
-			newRound();
+			if(removeLife()){
+				healthBar.SetMaxHealth(maxHealth);
+				lives -= 1;
+				newRound();
+		}
         }
 	}
 	void newRound(){
@@ -45,14 +47,21 @@ public class Health : MonoBehaviour
 		StartCoroutine(RespawnProtection());
 		player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 	}
-	void removeLife() {
+	bool removeLife() {
 		if (lives <= 0) {
 			healthBar.SetMaxHealth(0);
-			Destroy(this.gameObject);
-			healthBar.removeHeath();
+			if((player.GetComponent<PlayerMovement>().player1)){
+				Destroy(this.gameObject);
+				GameEnd.P2Win();
+			}else{
+				Destroy(this.gameObject);
+				GameEnd.P1Win();
+			}
+			return false;
 		} else {
 			healthBar.removeHeath();
 		}
+		return true;
 	}
 	IEnumerator RespawnProtection() {
 		_animator.SetBool("spawn", true);

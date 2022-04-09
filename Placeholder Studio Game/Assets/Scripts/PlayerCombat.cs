@@ -71,7 +71,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().TakeDamage(20);
-			Debug.Log("Light Attack Hit " + enemy.name);
+			//Debug.Log("Light Attack Hit " + enemy.name);
         }
 
 
@@ -90,7 +90,7 @@ public class PlayerCombat : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().TakeDamage(40);
-			Debug.Log("Heavy Attack Hit " + enemy.name);
+			//Debug.Log("Heavy Attack Hit " + enemy.name);
         }
 
     }

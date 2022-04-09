@@ -30,14 +30,14 @@ public class HealthBar : MonoBehaviour
                 hearts[hearts.Count-1].enabled = false;
                 hearts.RemoveAt(hearts.Count-1);
             } else {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         } else {
             if (hearts.Count != 0) {
                 hearts[0].enabled = false;
                 hearts.RemoveAt(0);
             } else {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         }
     }

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+
+     public PauseMenu PauseMenu;
     public TextMeshProUGUI timer;
     public int time = 180;
     void Start()
