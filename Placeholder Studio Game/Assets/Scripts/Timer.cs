@@ -22,7 +22,7 @@ public class Timer : MonoBehaviour
             timer.text = "" + time;
             time -= 1;
             yield return new WaitForSeconds(1);
-            Debug.Log(time);
+            //Debug.Log(time);
         }
         end.WhoWon();
         yield return null;

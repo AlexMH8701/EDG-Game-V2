@@ -35,11 +35,11 @@ public class PlayerCombat : MonoBehaviour
         }
 
 		if (((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1)) && Time.time > NextAttack)
-		{
-             Lattacksound.Play();
+		{ 
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
+                Lattacksound.Play();
 				Invoke("LAttack", 0.05f);
 			}
 
@@ -74,8 +74,9 @@ public class PlayerCombat : MonoBehaviour
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Health>().TakeDamage(20);
-			//Debug.Log("Light Attack Hit " + enemy.name);
+            if(enemy.GetComponent<Health>().canDmg){
+                 enemy.GetComponent<Health>().TakeDamage(20);
+            }
         }
 
 
@@ -93,7 +94,9 @@ public class PlayerCombat : MonoBehaviour
         //damage them
         foreach(Collider2D enemy in hitEnemies)
         {
+            if(enemy.GetComponent<Health>().canDmg){
             enemy.GetComponent<Health>().TakeDamage(40);
+            }
 			//Debug.Log("Heavy Attack Hit " + enemy.name);
         }
 

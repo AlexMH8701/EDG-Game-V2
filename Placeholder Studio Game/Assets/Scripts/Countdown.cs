@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
+    public int WaitTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class Countdown : MonoBehaviour
     }
 
     IEnumerator EndScene(){
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(WaitTime);
         SceneManager.LoadScene(1);
     }
 }

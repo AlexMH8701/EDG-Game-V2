@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FloatingPlatform
   - FloatingPlatform2
+  - Music
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Platforms
   - Player 1
   - Player 2
-  - 
+  - Music
   - 
   - 
   - 

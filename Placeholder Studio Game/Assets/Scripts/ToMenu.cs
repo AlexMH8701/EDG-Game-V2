@@ -7,6 +7,7 @@ public class ToMenu : MonoBehaviour
 {
     public void ReturnToMenu(){
         Time.timeScale = 1f;
+        Destroy(GameObject.FindGameObjectWithTag("Music"));
         SceneManager.LoadScene(0);
     }
 }
