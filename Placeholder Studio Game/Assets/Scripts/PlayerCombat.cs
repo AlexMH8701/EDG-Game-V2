@@ -23,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
      private float NextAttack;
 
     public PauseMenu PauseMenu;
+    public Animator animator;
    
 
     // Update is called once per framevoid Update()
@@ -40,6 +41,7 @@ public class PlayerCombat : MonoBehaviour
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
+                animator.SetTrigger("LightAttack");
 				Invoke("LAttack", 0.05f);
 			}
 
