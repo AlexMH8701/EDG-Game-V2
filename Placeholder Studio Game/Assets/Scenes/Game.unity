@@ -5617,19 +5617,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436394, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 71e6ac7c2d1bc3c4c8d2c86c75ec5e0e,
+        type: 3}
+    - target: {fileID: 3323656363888436394, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
       propertyPath: m_Color.b
-      value: 0.3909853
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436394, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.3909853
+      value: 0.93333334
       objectReference: {fileID: 0}
     - target: {fileID: 3323656363888436394, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.84313726
       objectReference: {fileID: 0}
+    - target: {fileID: 3323656363888436396, guid: 3d97f8e228df6694bbb8671c1e304075,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1c5c2c1176de4bd4a8cf0ce538b8c5da, type: 2}
     - target: {fileID: 3323656363888436397, guid: 3d97f8e228df6694bbb8671c1e304075,
         type: 3}
       propertyPath: m_RootOrder
