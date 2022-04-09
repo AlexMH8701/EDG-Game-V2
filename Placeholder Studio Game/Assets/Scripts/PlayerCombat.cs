@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+
+    public AudioSource Lattacksound;
+     public AudioSource Hattacksound;
     public Transform LightAttack;
 
     public Transform HeavyAttack;
@@ -33,26 +36,27 @@ public class PlayerCombat : MonoBehaviour
 
 		if (((Input.GetKeyDown(KeyCode.Q) && player1) || (Input.GetKeyDown(KeyCode.O) && !player1)) && Time.time > NextAttack)
 		{
-
+             Lattacksound.Play();
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
-
 				Invoke("LAttack", 0.05f);
-                NextAttack = Time.time + AttackRate;
 			}
+
+            NextAttack = Time.time + AttackRate;
 
 		}
 
         if (((Input.GetKeyDown(KeyCode.E) && player1) || (Input.GetKeyDown(KeyCode.U) && !player1)) && Time.time > NextAttack)
 		{
-
+             Hattacksound.Play();
              bool canDmg = gameObject.GetComponent<Health>().canDmg;
 
 			if (canDmg) {
 				Invoke("HAttack", 0.1f);
-                NextAttack = Time.time + AttackRate*3;
 			}
+
+            NextAttack = Time.time + AttackRate*3;
 
 		}
 	}
